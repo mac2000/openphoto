@@ -19,7 +19,7 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - run: dotnet publish -o openphoto /p:Version=1.0.$GITHUB_RUN_NUMBER
+      - run: dotnet publish -o openphoto /p:Version="1.0.$($env:GITHUB_RUN_NUMBER)"
       - run: ls -la openphoto
       - uses: actions/upload-artifact@v2
         with:
