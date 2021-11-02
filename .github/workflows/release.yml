@@ -2,13 +2,13 @@ name: main
 on:
   release:
     types:
-      - created
+      - published
 jobs:
   main:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - run: dotnet publish -o openphoto /p:Version="1.0.$($env:GITHUB_RUN_NUMBER)"
+      - run: dotnet publish -o openphoto /p:Version="${{ github.event.release.tag_name }}"
       - uses: actions/upload-artifact@v2
         with:
           name: openphoto
