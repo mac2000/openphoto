@@ -1,0 +1,27 @@
+name: main
+
+on:
+  push:
+    branches:
+      - master
+    paths-ignore:
+      - .editorconfig
+      - .gitattributes
+      - .gitignore
+      - README.md
+
+  # pull_request:
+  #   branches:
+  #     - master
+
+jobs:
+  main:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - run: dotnet publish -o openphoto /p:Version=1.0.$GITHUB_RUN_NUMBER
+      - run: ls -la openphoto
+      - uses: actions/upload-artifact@v2
+        with:
+          name: openphoto
+          path: openphoto
