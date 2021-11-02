@@ -23,4 +23,8 @@ jobs:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
-      - run: dotnet publish
+      - run: dotnet publish -o openphoto
+      - uses: actions/upload-artifact@v2
+        with:
+          name: openphoto
+          path: openphoto

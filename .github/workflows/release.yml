@@ -9,7 +9,21 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - run: dotnet publish -o openphoto /p:Version="${{ github.event.release.tag_name }}"
-      - uses: actions/upload-artifact@v2
+      - uses: actions/github-script@v5
         with:
-          name: openphoto
-          path: openphoto
+          script: console.log(JSON.stringify(github, null, 4))
+      # - uses: actions/upload-artifact@v2
+      #   with:
+      #     name: openphoto
+      #     path: openphoto
+      # - uses: actions/upload-release-asset@v1
+      #   env:
+      #     GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      #   with:
+      #     upload_url: ${{ steps.create_release.outputs.upload_url }} # This pulls from the CREATE RELEASE step above, referencing it's ID to get its outputs object, which include a `upload_url`. See this blog post for more info: https://jasonet.co/posts/new-features-of-github-actions/#passing-data-to-future-steps 
+      #     asset_path: ./my-artifact.zip
+      #     asset_name: my-artifact.zip
+      #     asset_content_type: application/zip
+
+        # /repos/{owner}/{repo}/releases/{release_id}/assets
+
