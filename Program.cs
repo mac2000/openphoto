@@ -6,7 +6,7 @@ public static class Program
     public static int Main(string[] args)
     {
         if (args.Length == 0 || string.IsNullOrEmpty(args[0])) {
-            Console.WriteLine("Path missing, usage example:");
+            Console.WriteLine("Path is missing, usage example:");
             Console.WriteLine("openphoto.exe /Users/bob/Desktop/me.png");
             return 1;
         }
