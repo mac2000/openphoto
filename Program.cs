@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using OpenCvSharp;
 
 public static class Program
