@@ -13,8 +13,8 @@ jobs:
       #   with:
       #     script: console.log(JSON.stringify(context, null, 4))
       - run: Compress-Archive -Path openphoto -DestinationPath openphoto.zip
-      - run: get-chilitem
-      - run: get-chilitem openphoto
+      - run: get-childitem
+      - run: get-childitem openphoto
       - uses: actions/upload-release-asset@v1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
