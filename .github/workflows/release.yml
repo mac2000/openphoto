@@ -1,10 +1,10 @@
-name: main
+name: release
 on:
   release:
     types:
       - published
 jobs:
-  main:
+  release:
     runs-on: windows-latest
     steps:
       - uses: actions/checkout@v2
